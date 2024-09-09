@@ -37,7 +37,7 @@ public class LoginTest {
 
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
-        mainScreenPage.getToLoginScreenByPersonalAccountButton();
+        mainScreenPage.clickPersonalAccountButton();
 
         LoginScreenPage loginScreenPage = new LoginScreenPage(driver);
 
@@ -52,7 +52,7 @@ public class LoginTest {
     public void enterInAccountButtonLoginTest() {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
-        mainScreenPage.getToLoginScreenByEnterInAccountButton();
+        mainScreenPage.clickEnterInAccountButton();
 
         LoginScreenPage loginScreenPage = new LoginScreenPage(driver);
 

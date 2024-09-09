@@ -22,7 +22,7 @@ public class RegistrationTest {
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
 
-        new MainScreenPage(driver).getToLoginScreenByPersonalAccountButton();
+        new MainScreenPage(driver).clickPersonalAccountButton();
 
         new LoginScreenPage(driver).getToRegistrationScreen();
     }

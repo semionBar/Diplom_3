@@ -20,12 +20,12 @@ public class MainScreenPage {
     private final By makeBurgerLabel = By.xpath(".//h1[text()='Соберите бургер']");
 
     @Step("Перейти на экран \"Авторизации\", нажав на кнопку \"Личный кабинет\"")
-    public void getToLoginScreenByPersonalAccountButton() {
+    public void clickPersonalAccountButton() {
         driver.findElement(personalAccountButton).click();
     }
 
     @Step("Перейти на экран \"Авторизации\", нажав на кнопку \"Войти в аккаунт\"")
-    public void getToLoginScreenByEnterInAccountButton() {
+    public void clickEnterInAccountButton() {
         driver.findElement(enterInAccountButton).click();
     }
 
