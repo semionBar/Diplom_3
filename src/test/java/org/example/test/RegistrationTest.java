@@ -1,18 +1,14 @@
 package org.example.test;
 
-import io.qameta.allure.Step;
-import org.checkerframework.checker.units.qual.A;
-import org.example.api.UserAPI;
 import org.example.model.UserModel;
-import org.example.model.UserTokenModel;
 import org.junit.After;
-import screen.LoginScreenPage;
-import screen.MainScreenPage;
+import org.example.screen.LoginScreenPage;
+import org.example.screen.MainScreenPage;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import screen.RegistrationScreenPage;
+import org.example.screen.RegistrationScreenPage;
 
 public class RegistrationTest {
 
@@ -26,7 +22,7 @@ public class RegistrationTest {
         driver = new ChromeDriver();
         driver.get("https://stellarburgers.nomoreparties.site/");
 
-        new MainScreenPage(driver).getToLoginScreen();
+        new MainScreenPage(driver).getToLoginScreenByPersonalAccountButton();
 
         new LoginScreenPage(driver).getToRegistrationScreen();
     }
@@ -46,7 +42,23 @@ public class RegistrationTest {
 
     }
 
+    @Test
+    public void passwordHasLessThanSixSymbolsError() {
+        RegistrationScreenPage registrationScreenPage = new RegistrationScreenPage(driver);
 
+        registrationScreenPage.getNewUser();
+
+        registrationScreenPage.setRegisterNewUserWithExactPassword("12345");
+
+        registrationScreenPage.registrationScreenPageIsDisplayed();
+
+        registrationScreenPage.wrongPasswordHintIsDisplayed();
+
+        new MainScreenPage(driver).mainScreenPageIsDisplayed();
+
+
+
+    }
 
 
 

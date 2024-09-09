@@ -12,8 +12,6 @@ public class UserAPI {
 
     Response response;
 
-
-
     @Step("Отправить запрос на логин юзера")
     public void sendLoginRequest(UserModel userModel) {
 
@@ -28,6 +26,22 @@ public class UserAPI {
 
         System.out.println(response.body().asString());
     }
+
+    @Step("Отправить запрос на логин юзера")
+    public void sendRegistrationRequest(UserModel userModel) {
+
+
+        response = given()
+                .header("Content-type", "application/json")
+                //.auth().oauth2("подставь_сюда_свой_токен")
+                .and()
+                .body(userModel)
+                .when()
+                .post("/api/auth/register");
+
+        System.out.println(response.body().asString());
+    }
+
 
     @Step("Получить токен")
     public UserTokenModel getAccessToken() {
@@ -55,8 +69,23 @@ public class UserAPI {
         }
     }
 
+
     @Step
     public void setBaseURI() {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+    }
+
+
+    @Step("Удалить юзера")
+    public void clearUser(UserModel userModel) {
+        setBaseURI();
+        sendLoginRequest(userModel);
+        sendDeleteRequest(getAccessToken());
+    }
+
+    @Step("Сделать нового юзера")
+    public void createNewUser(UserModel userModel) {
+        setBaseURI();
+        sendRegistrationRequest(userModel);
     }
 }
