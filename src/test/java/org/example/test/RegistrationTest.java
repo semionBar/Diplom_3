@@ -54,9 +54,6 @@ public class RegistrationTest {
 
         registrationScreenPage.wrongPasswordHintIsDisplayed();
 
-        new MainScreenPage(driver).mainScreenPageIsDisplayed();
-
-
 
     }
 
