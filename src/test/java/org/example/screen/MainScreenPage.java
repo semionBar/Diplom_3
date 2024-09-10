@@ -19,6 +19,19 @@ public class MainScreenPage {
 
     private final By makeBurgerLabel = By.xpath(".//h1[text()='Соберите бургер']");
 
+    private final By bunListTitle = By.xpath(".//h2[text()='Булки']");
+
+    private final By sauceListTitle = By.xpath(".//h2[text()='Соусы']");
+    private final By fillingsListTitle = By.xpath(".//h2[text()='Начинки']");
+
+    private final By bunListTab = By.xpath(".//span[contains(text(), 'Булки')]");
+    private final By sauceListTab = By.xpath(".//span[contains(text(), 'Соусы')]");
+    private final By fillingsListTab = By.xpath(".//span[contains(text(), 'Начинки')]");
+    private final By image = By.xpath(".//img[3]");
+
+
+
+
     @Step("Перейти на экран \"Авторизации\", нажав на кнопку \"Личный кабинет\"")
     public void clickPersonalAccountButton() {
         driver.findElement(personalAccountButton).click();
@@ -34,6 +47,46 @@ public class MainScreenPage {
         driver.findElement(makeBurgerLabel).isDisplayed();
     }
     public void mainScreenPageIsDisplayed() {
+        SharedStep.wait(driver,3);
         makeBurgerLabelIsDisplayed();
+    }
+
+    public void bunListTitleIsDisplayed() {
+        driver.findElement(bunListTitle).isDisplayed();
+    }
+
+    public void sauceListTitleIsDisplayed() {
+        driver.findElement(sauceListTitle).isDisplayed();
+    }
+
+    public void fillingsListTitleIsDisplayed() {
+        driver.findElement(fillingsListTitle).isDisplayed();
+    }
+
+    public void bunListTitleIsNotDisplayed() throws Exception {
+        SharedStep.waitForElementToBeVisible(driver, image);
+        boolean elementDisplayed;
+        try {
+            driver.findElement(bunListTitle).isDisplayed();
+            elementDisplayed = true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            elementDisplayed = false;
+        }
+
+        if (elementDisplayed) {
+            throw new Exception("Название блока \"Булки\" не должно отображаться");
+        }
+    }
+
+    public void clickBunListTab() {
+        driver.findElement(bunListTab).click();
+    }
+
+    public void clickSauceListTab() {
+        driver.findElement(sauceListTab).click();
+    }
+
+    public void clickFillingsListTab() {
+        driver.findElement(fillingsListTab).click();
     }
 }

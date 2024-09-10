@@ -26,50 +26,37 @@ public class PersonalAccountTest {
 
         userModel = new UserModel("user12345678@gmail.com", "user", "1245768");
 
-        UserAPI userAPI = new UserAPI();
+        new UserAPI().createNewUser(userModel);
 
-        userAPI.createNewUser(userModel);
+        new MainScreenPage(driver).clickPersonalAccountButton();
 
-        MainScreenPage mainScreenPage = new MainScreenPage(driver);
-
-        mainScreenPage.clickPersonalAccountButton();
-
-        LoginScreenPage loginScreenPage = new LoginScreenPage(driver);
-
-        loginScreenPage.setAllFieldsAndClickLoginButton(userModel);
+        new LoginScreenPage(driver).setAllFieldsAndClickLoginButton(userModel);
     }
 
     @Test
     public void getToPersonalAccountTest() {
-        MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
-        mainScreenPage.clickPersonalAccountButton();
+        new MainScreenPage(driver).clickPersonalAccountButton();
 
-        PersonalAccountScreenPage personalAccountScreenPage = new PersonalAccountScreenPage(driver);
+        new PersonalAccountScreenPage(driver).personalAccountScreenIsDisplayed();
 
-        personalAccountScreenPage.personalAccountScreenIsDisplayed();
-
-        personalAccountScreenPage.clearUser(userModel);
     }
 
     @Test
     public void quitTest() {
-        MainScreenPage mainScreenPage = new MainScreenPage(driver);
+        new MainScreenPage(driver).clickPersonalAccountButton();
 
-        mainScreenPage.clickPersonalAccountButton();
-
-        PersonalAccountScreenPage personalAccountScreenPage = new PersonalAccountScreenPage(driver);
-
-        personalAccountScreenPage.clickQuitLink();
+        new PersonalAccountScreenPage(driver).clickQuitLink();
 
         new LoginScreenPage(driver).checkLoginScreenPageIsDisplayed();
-
-        personalAccountScreenPage.clearUser(userModel);
 
     }
 
     @After
     public void postConditions() {
+
+        new UserAPI().clearUser(userModel);
+
         driver.quit();
     }
 

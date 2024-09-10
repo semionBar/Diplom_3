@@ -15,4 +15,9 @@ public class SharedStep {
         new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(element));
     }
 
+    @Step("Подождать 3 секунды")
+    public static void wait(WebDriver driver, int seconds) {
+        new WebDriverWait(driver, Duration.ofSeconds(seconds));
+    }
+
 }
