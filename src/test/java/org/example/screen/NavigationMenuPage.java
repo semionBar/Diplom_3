@@ -1,5 +1,6 @@
 package org.example.screen;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,10 +15,11 @@ public class NavigationMenuPage {
         this.driver = driver;
     }
 
+    @Step("Нажать на ссылку \"Конструктор\"")
     public void clickConstructorLink() {
         driver.findElement(constructorLink).click();
     }
-
+    @Step("Нажать на лого сайта")
     public void clickMainLogoLink() {
         driver.findElement(mainLogoLink).click();
     }

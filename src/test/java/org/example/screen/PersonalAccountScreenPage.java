@@ -1,5 +1,6 @@
 package org.example.screen;
 
+import io.qameta.allure.Step;
 import org.example.api.UserAPI;
 import org.example.model.UserModel;
 import org.example.shared.SharedStep;
@@ -19,31 +20,31 @@ public class PersonalAccountScreenPage {
         this.driver = driver;
     }
 
+    @Step("Проверить, что экран \"Личный кабинет\" отображается")
     public void personalAccountScreenIsDisplayed() {
        profileLinkIsVisible();
        orderHistoryLinkIsVisible();
        quitLinkIsVisible();
     }
-
+    @Step("Проверить, что отображается ссылка \"Профиль\"")
     public void profileLinkIsVisible() {
         SharedStep.waitForElementToBeVisible(driver, profileLink);
         driver.findElement(profileLink).isDisplayed();
     }
 
+    @Step("Проверить, что отображается ссылка \"История заказов\"")
     public void orderHistoryLinkIsVisible() {
         SharedStep.waitForElementToBeVisible(driver, orderHistoryLink);
         driver.findElement(orderHistoryLink).isDisplayed();
     }
 
+    @Step("Проверить, что отображается ссылка \"Выход\"")
     public void quitLinkIsVisible() {
         SharedStep.waitForElementToBeVisible(driver, quitLink);
         driver.findElement(quitLink).isDisplayed();
     }
 
-    public void clearUser(UserModel userModel) {
-        new UserAPI().clearUser(userModel);
-    }
-
+    @Step("Нажать на кнопку \"Выход\"")
     public void clickQuitLink() {
         SharedStep.waitForElementToBeVisible(driver, quitLink);
         driver.findElement(quitLink).click();

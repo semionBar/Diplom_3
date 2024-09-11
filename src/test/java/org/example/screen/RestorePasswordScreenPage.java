@@ -1,5 +1,6 @@
 package org.example.screen;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +13,7 @@ public class RestorePasswordScreenPage {
         this.driver = driver;
     }
 
+    @Step("Нажать на кнопку \"Войти\"")
     public void clickEnterButton() {
         driver.findElement(enterButton).click();
     }

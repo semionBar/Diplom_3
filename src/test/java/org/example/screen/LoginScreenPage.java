@@ -64,21 +64,24 @@ public class LoginScreenPage {
     }
 
 
-
+    @Step("Нажать на кнопку \"Войти\"")
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
 
+    @Step("Заполнить все поля")
     public void setAllFields(UserModel userModel) {
         setEmailInput(userModel);
         setPasswordInput(userModel);
     }
 
+    @Step("Заполнить все поля и нажать на кнопку \"Войти\"")
     public void setAllFieldsAndClickLoginButton(UserModel userModel) {
         setAllFields(userModel);
         clickLoginButton();
     }
 
+    @Step("Удалить юзера")
     public void clearUser(UserModel userModel) {
         new UserAPI().clearUser(userModel);
     }

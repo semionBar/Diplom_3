@@ -31,7 +31,6 @@ public class MainScreenPage {
 
 
 
-
     @Step("Перейти на экран \"Авторизации\", нажав на кнопку \"Личный кабинет\"")
     public void clickPersonalAccountButton() {
         driver.findElement(personalAccountButton).click();
@@ -42,50 +41,41 @@ public class MainScreenPage {
         driver.findElement(enterInAccountButton).click();
     }
 
+    @Step("Проверить, что заголовок \"Соберите бургер\" отображается")
     public void makeBurgerLabelIsDisplayed()  {
         SharedStep.waitForElementToBeVisible(driver, makeBurgerLabel);
         driver.findElement(makeBurgerLabel).isDisplayed();
     }
+
+    @Step("Проверить, что главный экран отображается")
     public void mainScreenPageIsDisplayed() {
         SharedStep.wait(driver,3);
         makeBurgerLabelIsDisplayed();
     }
-
+    @Step("Проверить, что заголовок \"Булки\" отображается")
     public void bunListTitleIsDisplayed() {
         driver.findElement(bunListTitle).isDisplayed();
     }
 
+    @Step("Проверить, что заголовок \"Соусы\" отображается")
     public void sauceListTitleIsDisplayed() {
         driver.findElement(sauceListTitle).isDisplayed();
     }
 
+    @Step("Проверить, что заголовок \"Начинки\" отображается")
     public void fillingsListTitleIsDisplayed() {
         driver.findElement(fillingsListTitle).isDisplayed();
     }
 
-    public void bunListTitleIsNotDisplayed() throws Exception {
-        SharedStep.waitForElementToBeVisible(driver, image);
-        boolean elementDisplayed;
-        try {
-            driver.findElement(bunListTitle).isDisplayed();
-            elementDisplayed = true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            elementDisplayed = false;
-        }
-
-        if (elementDisplayed) {
-            throw new Exception("Название блока \"Булки\" не должно отображаться");
-        }
-    }
-
+    @Step("Перейти на таб \"Булки\"")
     public void clickBunListTab() {
         driver.findElement(bunListTab).click();
     }
-
+    @Step("Перейти на таб \"Соусы\"")
     public void clickSauceListTab() {
         driver.findElement(sauceListTab).click();
     }
-
+    @Step("Перейти на таб \"Начинки\"")
     public void clickFillingsListTab() {
         driver.findElement(fillingsListTab).click();
     }

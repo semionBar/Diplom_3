@@ -24,37 +24,35 @@ public class RegistrationScreenPage {
     private final By loginButton = By.xpath(".//a[text()='Войти']");
 
 
-
-
-
-
-
-
     public RegistrationScreenPage(WebDriver driver) {
         this.driver = driver;
     }
 
-
+    @Step("Заполнить поле \"Имя\"")
     public void setNameInput() {
         driver.findElement(nameInput).sendKeys(userModel.getName());
     }
 
+    @Step("Заполнить поле \"Email\"")
     public void setEmailInput() {
         driver.findElement(emailInput).sendKeys(userModel.getEmail());
     }
-
+    @Step("Заполнить поле \"Пароль\"")
     public void setPasswordInput() {
         driver.findElement(passwordInput).sendKeys(userModel.getPassword());
     }
 
+    @Step("Заполнить поле \"Пароль\"")
     public void setPasswordInput(String passwordInputValue) {
         driver.findElement(passwordInput).sendKeys(passwordInputValue);
     }
 
+    @Step("Нажать на кнопку \"Зарегистрироваться\" ")
     public void clickRegisterButton() {
         driver.findElement(registerButton).click();
     }
 
+    @Step("Зарегистрировать нового юзера")
     public void registerNewUser() {
         setNameInput();
         setEmailInput();
@@ -62,6 +60,7 @@ public class RegistrationScreenPage {
         clickRegisterButton();
     }
 
+    @Step("Зарегистрировать нового юзера")
     public void setRegisterNewUserWithExactPassword(String password) {
         setNameInput();
         setEmailInput();
@@ -69,30 +68,34 @@ public class RegistrationScreenPage {
         clickRegisterButton();
     }
 
+    @Step("Зарегистрировать нового юзера")
     public void clearUser() {
         new UserAPI().clearUser(userModel);
     }
 
+    @Step("Создать модель нового юзера")
     public void getNewUser() {
         userModel = new UserModel(0);
     }
 
+    @Step("Проверить, что поле \"Имя\" отображается")
     public void nameInputIsVisible() {
         driver.findElement(nameInput).isDisplayed();
     }
 
+    @Step("Проверить, что поле \"Email\" отображается")
     public void emailInputIsVisible() {
         driver.findElement(emailInput).isDisplayed();
     }
-
+    @Step("Проверить, что поле \"Пароль\" отображается")
     public void passwordInputIsVisible() {
         driver.findElement(passwordInput).isDisplayed();
     }
-
+    @Step("Проверить, что кнпока \"Зарегистрироваться\" отображается")
     public void registerButtonIsVisible() {
         driver.findElement(registerButton).isDisplayed();
     }
-
+    @Step("Проверить, что экран регистрации отображается")
     public void registrationScreenPageIsDisplayed() {
         nameInputIsVisible();
         emailInputIsVisible();
@@ -100,10 +103,12 @@ public class RegistrationScreenPage {
         registerButtonIsVisible();
     }
 
+    @Step("Проверить, что отображается подсказка о неверном пароле")
     public void wrongPasswordHintIsDisplayed() {
         driver.findElement(wrongPasswordHint).isDisplayed();
     }
 
+    @Step("Перейти на экран авторизации")
     public void getToLoginButton() {
         driver.findElement(loginButton).click();
     }

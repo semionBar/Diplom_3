@@ -31,7 +31,28 @@ public class MainScreenTest {
 
         mainScreenPage.sauceListTitleIsDisplayed();
 
-        mainScreenPage.bunListTitleIsNotDisplayed();
+    }
+
+    @Test
+    public void fillingsTabClickTest() throws Exception {
+        MainScreenPage mainScreenPage = new MainScreenPage(driver);
+
+        mainScreenPage.clickFillingsListTab();
+
+        mainScreenPage.fillingsListTitleIsDisplayed();
+
+    }
+
+    @Test
+    public void bunTabClickTest() throws Exception {
+        MainScreenPage mainScreenPage = new MainScreenPage(driver);
+
+        mainScreenPage.clickFillingsListTab();
+
+        mainScreenPage.clickBunListTab();
+
+        mainScreenPage.bunListTitleIsDisplayed();
+
     }
 
     @After
