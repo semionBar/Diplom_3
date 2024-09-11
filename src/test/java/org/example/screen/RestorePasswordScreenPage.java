@@ -21,7 +21,12 @@ public class RestorePasswordScreenPage {
     @Step("Нажать на кнопку \"Войти\"")
     public void clickEnterButton() {
         RestorePasswordScreenIsDisplayed();
-        driver.findElement(enterButton).click();
+        try { //Было решено обернуть поиск кнопки в блок try и дать драйверу еще один шанс, так как на Firefox проиходят рандомные падения
+            driver.findElement(enterButton).click();
+        } catch (Throwable throwable) {
+            SharedStep.waitForModalToDisappear(driver);
+            driver.findElement(enterButton).click();
+        }
     }
 
     @Step("Экран восстановления пароля отображается")

@@ -24,7 +24,7 @@ public class PersonalAccountTest {
     @Before
     public void setUp() {
 
-        driver = new Browser().getWebDriver("Firefox");
+        driver = new Browser().getWebDriver("Chrome");
 
         driver.get("https://stellarburgers.nomoreparties.site/");
 

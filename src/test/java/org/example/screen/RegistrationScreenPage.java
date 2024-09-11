@@ -114,6 +114,7 @@ public class RegistrationScreenPage {
     @Step("Перейти на экран авторизации")
     public void getToLoginButton() {
         registrationScreenPageIsDisplayed();
+        SharedStep.waitForModalToDisappear(driver);
         driver.findElement(loginButton).click();
     }
 

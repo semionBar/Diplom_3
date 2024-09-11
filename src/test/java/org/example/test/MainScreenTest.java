@@ -14,7 +14,7 @@ public class MainScreenTest {
 
     @Before
     public void setUp() {
-        driver = new Browser().getWebDriver("Firefox");
+        driver = new Browser().getWebDriver("Chrome");
 
         driver.get("https://stellarburgers.nomoreparties.site/");
 
@@ -23,6 +23,8 @@ public class MainScreenTest {
     @Test
     public void sauceTabClickTest()  {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
+
+        mainScreenPage.mainScreenPageIsDisplayed();
 
         mainScreenPage.clickSauceListTab();
 
@@ -34,6 +36,8 @@ public class MainScreenTest {
     public void fillingsTabClickTest()  {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
+        mainScreenPage.mainScreenPageIsDisplayed();
+
         mainScreenPage.clickFillingsListTab();
 
         mainScreenPage.fillingsListTitleIsDisplayed();
@@ -43,6 +47,8 @@ public class MainScreenTest {
     @Test
     public void bunTabClickTest()  {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
+
+        mainScreenPage.mainScreenPageIsDisplayed();
 
         mainScreenPage.clickFillingsListTab();
 

@@ -22,9 +22,7 @@ public class LoginTest {
     @Before
     public void setUp() {
 
-        driver = new Browser().getWebDriver("Firefox");
-
-
+        driver = new Browser().getWebDriver("Chrome");
 
         userModel = new UserModel("user12345678@gmail.com", "user", "1245768");
 

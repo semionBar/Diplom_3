@@ -19,7 +19,6 @@ public class MainScreenPage {
     private final By personalAccountButton =  By.xpath(".//a[@href='/account']/p");
 
     private final By enterInAccountButton = By.xpath(".//button[text() = 'Войти в аккаунт']");
-    private final By makeOrderButton = By.xpath(".//div[contains(@class, 'totalContainer')]/following-sibling::button");
 
     private final By makeBurgerLabel = By.xpath(".//h1[text()='Соберите бургер']");
 
@@ -62,8 +61,6 @@ public class MainScreenPage {
         bunListTitleIsDisplayed();
         sauceListTitleIsDisplayed();
         fillingsListTitleIsDisplayed();
-
-
     }
     @Step("Проверить, что заголовок \"Булки\" отображается")
     public void bunListTitleIsDisplayed() {
@@ -85,17 +82,14 @@ public class MainScreenPage {
 
     @Step("Перейти на таб \"Булки\"")
     public void clickBunListTab() {
-        mainScreenPageIsDisplayed();
         driver.findElement(bunListTab).click();
     }
     @Step("Перейти на таб \"Соусы\"")
     public void clickSauceListTab() {
-        mainScreenPageIsDisplayed();
         driver.findElement(sauceListTab).click();
     }
     @Step("Перейти на таб \"Начинки\"")
     public void clickFillingsListTab() {
-        mainScreenPageIsDisplayed();
         driver.findElement(fillingsListTab).click();
     }
 }
