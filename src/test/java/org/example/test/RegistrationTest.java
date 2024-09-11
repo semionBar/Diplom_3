@@ -1,20 +1,17 @@
 package org.example.test;
 
-import org.example.model.UserModel;
-import org.junit.After;
 import org.example.screen.LoginScreenPage;
 import org.example.screen.MainScreenPage;
+import org.example.screen.RegistrationScreenPage;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.example.screen.RegistrationScreenPage;
 
 public class RegistrationTest {
 
     private WebDriver driver;
-
-    UserModel userModel;
 
 
     @Before
@@ -45,6 +42,7 @@ public class RegistrationTest {
 
     @Test
     public void passwordHasLessThanSixSymbolsError() {
+
         RegistrationScreenPage registrationScreenPage = new RegistrationScreenPage(driver);
 
         registrationScreenPage.getNewUser();
@@ -54,7 +52,6 @@ public class RegistrationTest {
         registrationScreenPage.registrationScreenPageIsDisplayed();
 
         registrationScreenPage.wrongPasswordHintIsDisplayed();
-
 
     }
 

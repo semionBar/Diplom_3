@@ -24,7 +24,6 @@ public class UserAPI {
                 .when()
                 .post("api/auth/login");
 
-        System.out.println(response.body().asString());
     }
 
     @Step("Отправить запрос на логин юзера")
@@ -39,7 +38,6 @@ public class UserAPI {
                 .when()
                 .post("/api/auth/register");
 
-        System.out.println(response.body().asString());
     }
 
 
@@ -62,8 +60,6 @@ public class UserAPI {
                         //.auth().oauth2("подставь_сюда_свой_токен")
                         .when()
                         .delete("api/auth/user");
-
-                System.out.println(response.body().asString());
 
             }
         }

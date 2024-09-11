@@ -1,9 +1,5 @@
 package org.example.test;
 
-import org.checkerframework.checker.units.qual.A;
-import org.example.api.UserAPI;
-import org.example.model.UserModel;
-import org.example.screen.LoginScreenPage;
 import org.example.screen.MainScreenPage;
 import org.junit.After;
 import org.junit.Before;
@@ -24,7 +20,7 @@ public class MainScreenTest {
     }
 
     @Test
-    public void sauceTabClickTest() throws Exception {
+    public void sauceTabClickTest()  {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
         mainScreenPage.clickSauceListTab();
@@ -34,7 +30,7 @@ public class MainScreenTest {
     }
 
     @Test
-    public void fillingsTabClickTest() throws Exception {
+    public void fillingsTabClickTest()  {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
         mainScreenPage.clickFillingsListTab();
@@ -44,7 +40,7 @@ public class MainScreenTest {
     }
 
     @Test
-    public void bunTabClickTest() throws Exception {
+    public void bunTabClickTest()  {
         MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
         mainScreenPage.clickFillingsListTab();

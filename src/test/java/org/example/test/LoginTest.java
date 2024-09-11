@@ -2,6 +2,8 @@ package org.example.test;
 
 import org.example.api.UserAPI;
 import org.example.model.UserModel;
+import org.example.screen.LoginScreenPage;
+import org.example.screen.MainScreenPage;
 import org.example.screen.RegistrationScreenPage;
 import org.example.screen.RestorePasswordScreenPage;
 import org.junit.After;
@@ -9,8 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.example.screen.LoginScreenPage;
-import org.example.screen.MainScreenPage;
 
 public class LoginTest {
 

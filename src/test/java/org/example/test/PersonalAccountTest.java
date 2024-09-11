@@ -1,6 +1,6 @@
 package org.example.test;
 
-import org.checkerframework.checker.units.qual.A;
+
 import org.example.api.UserAPI;
 import org.example.model.UserModel;
 import org.example.screen.LoginScreenPage;

@@ -27,8 +27,6 @@ public class MainScreenPage {
     private final By bunListTab = By.xpath(".//span[contains(text(), 'Булки')]");
     private final By sauceListTab = By.xpath(".//span[contains(text(), 'Соусы')]");
     private final By fillingsListTab = By.xpath(".//span[contains(text(), 'Начинки')]");
-    private final By image = By.xpath(".//img[3]");
-
 
 
     @Step("Перейти на экран \"Авторизации\", нажав на кнопку \"Личный кабинет\"")
@@ -49,7 +47,6 @@ public class MainScreenPage {
 
     @Step("Проверить, что главный экран отображается")
     public void mainScreenPageIsDisplayed() {
-        SharedStep.wait(driver,3);
         makeBurgerLabelIsDisplayed();
     }
     @Step("Проверить, что заголовок \"Булки\" отображается")

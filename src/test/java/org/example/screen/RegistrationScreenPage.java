@@ -3,7 +3,6 @@ package org.example.screen;
 import io.qameta.allure.Step;
 import org.example.api.UserAPI;
 import org.example.model.UserModel;
-import org.example.model.UserTokenModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,8 +11,6 @@ public class RegistrationScreenPage {
     private final WebDriver driver;
 
     private UserModel userModel;
-
-    private UserTokenModel userTokenModel;
 
 
     private final By nameInput =  By.xpath(".//label[text()='Имя']/../input");

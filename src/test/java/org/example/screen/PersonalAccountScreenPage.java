@@ -1,8 +1,6 @@
 package org.example.screen;
 
 import io.qameta.allure.Step;
-import org.example.api.UserAPI;
-import org.example.model.UserModel;
 import org.example.shared.SharedStep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
