@@ -1,6 +1,7 @@
 package org.example.test;
 
 import org.example.screen.MainScreenPage;
+import org.example.shared.Browser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +14,7 @@ public class MainScreenTest {
 
     @Before
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = new Browser().getWebDriver("Firefox");
 
         driver.get("https://stellarburgers.nomoreparties.site/");
 

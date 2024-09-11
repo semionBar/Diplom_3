@@ -55,17 +55,20 @@ public class LoginScreenPage {
 
     @Step("Заполнить поле email")
     public void setEmailInput(UserModel userModel) {
+        SharedStep.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(emailInput).sendKeys(userModel.getEmail());
     }
 
     @Step("Заполнить поле пароля")
     public void setPasswordInput(UserModel userModel) {
+        SharedStep.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(passwordInput).sendKeys(userModel.getPassword());
     }
 
 
     @Step("Нажать на кнопку \"Войти\"")
     public void clickLoginButton() {
+        SharedStep.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(loginButton).click();
     }
 

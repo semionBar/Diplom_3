@@ -4,6 +4,9 @@ import io.qameta.allure.Step;
 import org.example.shared.SharedStep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class PersonalAccountScreenPage {
 
@@ -44,7 +47,15 @@ public class PersonalAccountScreenPage {
 
     @Step("Нажать на кнопку \"Выход\"")
     public void clickQuitLink() {
-        SharedStep.waitForElementToBeVisible(driver, quitLink);
-        driver.findElement(quitLink).click();
+        personalAccountScreenIsDisplayed();
+
+        try {
+            driver.findElement(quitLink).click();
+        } catch (Throwable throwable) {
+            //Было решено обернуть поиск кнопки в блок try и дать драйверу еще один шанс, так как на Firefox проиходят рандомные падения
+            SharedStep.waitForModalToDisappear(driver);
+            driver.findElement(quitLink).click();
+        }
+
     }
 }
