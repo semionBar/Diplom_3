@@ -1,12 +1,9 @@
 package org.example.screen;
 
 import io.qameta.allure.Step;
-import org.example.shared.SharedStep;
+import org.example.shared.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class PersonalAccountScreenPage {
 
@@ -29,19 +26,19 @@ public class PersonalAccountScreenPage {
     }
     @Step("Проверить, что отображается ссылка \"Профиль\"")
     public void profileLinkIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, profileLink);
+        Wait.waitForElementToBeVisible(driver, profileLink);
         driver.findElement(profileLink).isDisplayed();
     }
 
     @Step("Проверить, что отображается ссылка \"История заказов\"")
     public void orderHistoryLinkIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, orderHistoryLink);
+        Wait.waitForElementToBeVisible(driver, orderHistoryLink);
         driver.findElement(orderHistoryLink).isDisplayed();
     }
 
     @Step("Проверить, что отображается ссылка \"Выход\"")
     public void quitLinkIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, quitLink);
+        Wait.waitForElementToBeVisible(driver, quitLink);
         driver.findElement(quitLink).isDisplayed();
     }
 
@@ -53,7 +50,7 @@ public class PersonalAccountScreenPage {
             driver.findElement(quitLink).click();
         } catch (Throwable throwable) {
             //Было решено обернуть поиск кнопки в блок try и дать драйверу еще один шанс, так как на Firefox проиходят рандомные падения
-            SharedStep.waitForModalToDisappear(driver);
+            Wait.waitForModalToDisappear(driver);
             driver.findElement(quitLink).click();
         }
 

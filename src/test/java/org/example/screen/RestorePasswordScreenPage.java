@@ -1,7 +1,7 @@
 package org.example.screen;
 
 import io.qameta.allure.Step;
-import org.example.shared.SharedStep;
+import org.example.shared.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -24,7 +24,7 @@ public class RestorePasswordScreenPage {
         try { //Было решено обернуть поиск кнопки в блок try и дать драйверу еще один шанс, так как на Firefox проиходят рандомные падения
             driver.findElement(enterButton).click();
         } catch (Throwable throwable) {
-            SharedStep.waitForModalToDisappear(driver);
+            Wait.waitForModalToDisappear(driver);
             driver.findElement(enterButton).click();
         }
     }
@@ -38,17 +38,17 @@ public class RestorePasswordScreenPage {
 
     @Step("Поле для ввода email отображается")
     public void inputEmailFieldIsDisplayed() {
-        SharedStep.waitForElementToBeVisible(driver, inputEmailField);
+        Wait.waitForElementToBeVisible(driver, inputEmailField);
         driver.findElement(inputEmailField).isDisplayed();
     }
     @Step("Поле для ввода email отображается")
     public void restoreAccountButtonIsDisplayed() {
-        SharedStep.waitForElementToBeVisible(driver, restoreAccountButton);
+        Wait.waitForElementToBeVisible(driver, restoreAccountButton);
         driver.findElement(restoreAccountButton).isDisplayed();
     }
     @Step("Ссылка \"Войти\" отображается")
     public void restoreAccountButtonIsClickable() {
-        SharedStep.waitForElementToBeClickable(driver, enterButton);
+        Wait.waitForElementToBeClickable(driver, enterButton);
         driver.findElement(enterButton).isDisplayed();
     }
 

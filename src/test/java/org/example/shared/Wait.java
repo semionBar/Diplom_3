@@ -8,10 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
-public class SharedStep {
+public class Wait {
 
     @Step("Подождать пока элемент интерфейса появится")
     public static void waitForElementToBeVisible(WebDriver driver, By element) {

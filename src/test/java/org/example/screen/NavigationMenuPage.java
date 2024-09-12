@@ -1,7 +1,7 @@
 package org.example.screen;
 
 import io.qameta.allure.Step;
-import org.example.shared.SharedStep;
+import org.example.shared.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,25 +18,25 @@ public class NavigationMenuPage {
 
     @Step("Нажать на ссылку \"Конструктор\"")
     public void clickConstructorLink() {
-        SharedStep.waitForElementToBeClickable(driver, constructorLink);
+        Wait.waitForElementToBeClickable(driver, constructorLink);
 
         try {
             driver.findElement(constructorLink).click();
         } catch (Throwable throwable) {
             new PersonalAccountScreenPage(driver).personalAccountScreenIsDisplayed();
-            SharedStep.waitForModalToDisappear(driver);
+            Wait.waitForModalToDisappear(driver);
             driver.findElement(constructorLink).click();
         }
     }
     @Step("Нажать на лого сайта")
     public void clickMainLogoLink() {
-        SharedStep.waitForElementToBeClickable(driver, mainLogoLink);
+        Wait.waitForElementToBeClickable(driver, mainLogoLink);
 
         try {
             driver.findElement(mainLogoLink).click();
         } catch (Throwable throwable) {
             new PersonalAccountScreenPage(driver).personalAccountScreenIsDisplayed();
-            SharedStep.waitForModalToDisappear(driver);
+            Wait.waitForModalToDisappear(driver);
             driver.findElement(mainLogoLink).click();
         }
     }

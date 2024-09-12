@@ -1,12 +1,9 @@
 package org.example.screen;
 
 import io.qameta.allure.Step;
-import org.example.shared.SharedStep;
+import org.example.shared.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 
 public class MainScreenPage {
@@ -38,7 +35,7 @@ public class MainScreenPage {
         try { //Было решено обернуть поиск кнопки в блок try и дать драйверу еще один шанс, так как на Firefox проиходят рандомные падения
             driver.findElement(personalAccountButton).click();
         } catch (Throwable throwable) {
-            SharedStep.waitForModalToDisappear(driver);
+            Wait.waitForModalToDisappear(driver);
             driver.findElement(personalAccountButton).click();
         }
     }
@@ -51,7 +48,7 @@ public class MainScreenPage {
 
     @Step("Проверить, что заголовок \"Соберите бургер\" отображается")
     public void makeBurgerLabelIsDisplayed()  {
-        SharedStep.waitForElementToBeVisible(driver, makeBurgerLabel);
+        Wait.waitForElementToBeVisible(driver, makeBurgerLabel);
         driver.findElement(makeBurgerLabel).isDisplayed();
     }
 
@@ -64,19 +61,19 @@ public class MainScreenPage {
     }
     @Step("Проверить, что заголовок \"Булки\" отображается")
     public void bunListTitleIsDisplayed() {
-        SharedStep.waitForElementToBeVisible(driver, bunListTitle);
+        Wait.waitForElementToBeVisible(driver, bunListTitle);
         driver.findElement(bunListTitle).isDisplayed();
     }
 
     @Step("Проверить, что заголовок \"Соусы\" отображается")
     public void sauceListTitleIsDisplayed() {
-        SharedStep.waitForElementToBeVisible(driver, sauceListTitle);
+        Wait.waitForElementToBeVisible(driver, sauceListTitle);
         driver.findElement(sauceListTitle).isDisplayed();
     }
 
     @Step("Проверить, что заголовок \"Начинки\" отображается")
     public void fillingsListTitleIsDisplayed() {
-        SharedStep.waitForElementToBeVisible(driver, fillingsListTitle);
+        Wait.waitForElementToBeVisible(driver, fillingsListTitle);
         driver.findElement(fillingsListTitle).isDisplayed();
     }
 

@@ -3,7 +3,7 @@ package org.example.screen;
 import io.qameta.allure.Step;
 import org.example.api.UserAPI;
 import org.example.model.UserModel;
-import org.example.shared.SharedStep;
+import org.example.shared.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -78,23 +78,23 @@ public class RegistrationScreenPage {
 
     @Step("Проверить, что поле \"Имя\" отображается")
     public void nameInputIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, nameInput);
+        Wait.waitForElementToBeVisible(driver, nameInput);
         driver.findElement(nameInput).isDisplayed();
     }
 
     @Step("Проверить, что поле \"Email\" отображается")
     public void emailInputIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, emailInput);
+        Wait.waitForElementToBeVisible(driver, emailInput);
         driver.findElement(emailInput).isDisplayed();
     }
     @Step("Проверить, что поле \"Пароль\" отображается")
     public void passwordInputIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, passwordInput);
+        Wait.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(passwordInput).isDisplayed();
     }
     @Step("Проверить, что кнпока \"Зарегистрироваться\" отображается")
     public void registerButtonIsVisible() {
-        SharedStep.waitForElementToBeClickable(driver, registerButton);
+        Wait.waitForElementToBeClickable(driver, registerButton);
         driver.findElement(registerButton).isDisplayed();
     }
     @Step("Проверить, что экран регистрации отображается")
@@ -107,14 +107,14 @@ public class RegistrationScreenPage {
 
     @Step("Проверить, что отображается подсказка о неверном пароле")
     public void wrongPasswordHintIsDisplayed() {
-        SharedStep.waitForElementToBeVisible(driver, wrongPasswordHint);
+        Wait.waitForElementToBeVisible(driver, wrongPasswordHint);
         driver.findElement(wrongPasswordHint).isDisplayed();
     }
 
     @Step("Перейти на экран авторизации")
     public void getToLoginButton() {
         registrationScreenPageIsDisplayed();
-        SharedStep.waitForModalToDisappear(driver);
+        Wait.waitForModalToDisappear(driver);
         driver.findElement(loginButton).click();
     }
 

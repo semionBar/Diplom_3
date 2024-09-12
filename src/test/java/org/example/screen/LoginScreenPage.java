@@ -3,7 +3,7 @@ package org.example.screen;
 import io.qameta.allure.Step;
 import org.example.api.UserAPI;
 import org.example.model.UserModel;
-import org.example.shared.SharedStep;
+import org.example.shared.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -30,19 +30,19 @@ public class LoginScreenPage {
 
     @Step("Проверить, что кнопка \"Войти\" видима")
     public void checkLoginButtonIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, loginButton);
+        Wait.waitForElementToBeVisible(driver, loginButton);
         driver.findElement(loginButton).isDisplayed();
     }
 
     @Step("Проверить, что поле \"Email\" видимо")
     public void checkEmailInputIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, emailInput);
+        Wait.waitForElementToBeVisible(driver, emailInput);
         driver.findElement(emailInput).isDisplayed();
     }
 
     @Step("Проверить, что поле \"Пароль\" видимо")
     public void checkPasswordInputIsVisible() {
-        SharedStep.waitForElementToBeVisible(driver, passwordInput);
+        Wait.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(passwordInput).isDisplayed();
     }
 
@@ -55,20 +55,20 @@ public class LoginScreenPage {
 
     @Step("Заполнить поле email")
     public void setEmailInput(UserModel userModel) {
-        SharedStep.waitForElementToBeVisible(driver, passwordInput);
+        Wait.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(emailInput).sendKeys(userModel.getEmail());
     }
 
     @Step("Заполнить поле пароля")
     public void setPasswordInput(UserModel userModel) {
-        SharedStep.waitForElementToBeVisible(driver, passwordInput);
+        Wait.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(passwordInput).sendKeys(userModel.getPassword());
     }
 
 
     @Step("Нажать на кнопку \"Войти\"")
     public void clickLoginButton() {
-        SharedStep.waitForElementToBeVisible(driver, passwordInput);
+        Wait.waitForElementToBeVisible(driver, passwordInput);
         driver.findElement(loginButton).click();
     }
 
